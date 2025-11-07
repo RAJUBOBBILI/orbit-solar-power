@@ -1,10 +1,20 @@
 import { useState } from "react";
+import emailjs from "emailjs-com";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+
+// ✅ Initialize EmailJS with your public key (once)
+emailjs.init("jOzViPvuhJ53R7H-t"); // Replace with your actual EmailJS public key
 
 const QuotationForm = () => {
   const { toast } = useToast();
@@ -14,44 +24,71 @@ const QuotationForm = () => {
     phone: "",
     address: "",
     propertyType: "",
-    message: ""
+    message: "",
   });
 
+  // ✅ Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Quotation Requested",
-      description: "We'll get back to you within 24 hours!",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      propertyType: "",
-      message: ""
-    });
+
+    // Replace with your actual EmailJS IDs
+    const serviceId = "service_24mmin7";
+    const templateId = "template_ft4qvlq";
+
+    emailjs
+      .send(serviceId, templateId, formData)
+      .then(() => {
+        toast({
+          title: "Quotation Sent ✅",
+          description:
+            "Your request has been sent successfully! Our solar team will contact you soon.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          address: "",
+          propertyType: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        toast({
+          title: "Error ❌",
+          description: "Something went wrong while sending your request.",
+          variant: "destructive",
+        });
+      });
   };
 
+  // ✅ Handle input changes
   const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
     <section id="quotation" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
+          {/* Header Section */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Request a Solar Installation Quote
             </h2>
             <p className="text-lg text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
+              Fill out the form below and our solar experts will contact you
+              shortly.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-border shadow-sm">
+          {/* Form Section */}
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-card p-8 rounded-lg border border-border shadow-sm"
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name */}
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input
@@ -63,6 +100,7 @@ const QuotationForm = () => {
                 />
               </div>
 
+              {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -75,6 +113,7 @@ const QuotationForm = () => {
                 />
               </div>
 
+              {/* Phone */}
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone</Label>
                 <Input
@@ -87,9 +126,13 @@ const QuotationForm = () => {
                 />
               </div>
 
+              {/* Property Type */}
               <div className="space-y-2">
                 <Label htmlFor="propertyType">Type of Property</Label>
-                <Select value={formData.propertyType} onValueChange={(value) => handleChange("propertyType", value)}>
+                <Select
+                  value={formData.propertyType}
+                  onValueChange={(value) => handleChange("propertyType", value)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select property type" />
                   </SelectTrigger>
@@ -103,6 +146,7 @@ const QuotationForm = () => {
               </div>
             </div>
 
+            {/* Address */}
             <div className="space-y-2">
               <Label htmlFor="address">Address</Label>
               <Input
@@ -114,6 +158,7 @@ const QuotationForm = () => {
               />
             </div>
 
+            {/* Message */}
             <div className="space-y-2">
               <Label htmlFor="message">Message</Label>
               <Textarea
@@ -125,7 +170,12 @@ const QuotationForm = () => {
               />
             </div>
 
-            <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg">
+            {/* Submit Button */}
+            <Button
+              type="submit"
+              className="w-full bg-primary hover:bg-primary/90"
+              size="lg"
+            >
               Submit Quote Request
             </Button>
           </form>
