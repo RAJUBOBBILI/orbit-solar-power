@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 Orbit Enterprises. All rights reserved.</p>
+          <p>&copy; 2025 Orbit Enterprises. All rights reserved.</p>
         </div>
       </div>
     </footer>

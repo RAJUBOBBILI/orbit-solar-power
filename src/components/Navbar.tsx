@@ -1,5 +1,6 @@
 import { Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/orbit_enterprises.svg";
 
 const Navbar = () => {
   const scrollToSection = (id: string) => {
@@ -12,8 +13,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <Sun className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">Orbit Enterprises</span>
+            <img src={logo} alt="Orbit Enterprises Logo" className="h-32 w-32" />
+            {/* <span className="text-xl font-bold text-foreground">Orbit Enterprises</span> */}
           </div>
           
           <div className="hidden md:flex items-center gap-8">

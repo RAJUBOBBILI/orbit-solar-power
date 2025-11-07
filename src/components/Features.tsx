@@ -5,22 +5,22 @@ const features = [
   {
     icon: Zap,
     title: "Efficient Solar Panels",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation."
+    description: "Our advanced solar panels are designed for maximum energy output and long-term durability. Enjoy higher efficiency and lower electricity bills, backed by top-tier solar technology."
   },
   {
     icon: Users,
     title: "Professional Installation",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia."
+    description: "Our certified technicians ensure a smooth and safe installation process from start to finish. We handle every detail—design, setup, and inspection—so you can relax while we power your property."
   },
   {
     icon: Award,
     title: "Quality Guarantee",
-    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis quasi architecto."
+    description: "At Orbit Enterprises, we stand behind every system we install. Each project includes premium components, strict quality control, and long-term warranty support."
   },
   {
     icon: TrendingUp,
     title: "Cost Savings",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam."
+    description: "Switching to solar energy saves you money from day one. Reduce your monthly electricity costs and gain energy independence for years to come."
   }
 ];
 

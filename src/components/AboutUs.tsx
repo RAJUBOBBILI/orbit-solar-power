@@ -13,13 +13,29 @@ const AboutUs = () => {
 
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mb-12">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Orbit Enterprises is a trusted solar energy company dedicated to bringing clean, renewable power to every home and business. With years of experience in solar design and installation, we focus on delivering high-performance systems that reduce energy bills and protect the environment.
             </p>
             <p>
-              Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              Our mission is simple — to make solar energy accessible, efficient, and reliable for everyone. From consultation to installation and maintenance, we handle the entire process with transparency and care.
             </p>
             <p>
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.
+              When you choose Orbit Enterprises, you choose:
+              
+              <ul>
+                <li>
+                  <strong>Quality:</strong> Premium solar products and expert craftsmanship
+                </li>
+                <li>
+                  <strong>Environment:</strong> Commitment to eco-friendly practices
+                </li>
+                <li>
+                  <strong>Support:</strong> Personalized solutions and ongoing support
+                </li>
+                <li>
+                  <strong>Progress:</strong> Staying ahead with the latest solar technologies
+                </li>
+              </ul>
+
             </p>
           </div>
 
@@ -29,27 +45,28 @@ const AboutUs = () => {
                 <Sun className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Solar Excellence</h3>
-              <p className="text-muted-foreground">Lorem ipsum dolor consectetur</p>
+              <p className="text-muted-foreground">We use only Tier-1 solar panels with exceptional performance and long-term warranties.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Leaf className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Eco-Friendly</h3>
-              <p className="text-muted-foreground">Adipiscing elit sed tempor</p>
+              <p className="text-muted-foreground">Every installation contributes to a cleaner planet by reducing carbon emissions and reliance on fossil fuels.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Heart className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Customer Care</h3>
-              <p className="text-muted-foreground">Incididunt ut labore dolore</p>
+              <p className="text-muted-foreground">Our support team is always available to answer your questions and ensure your system runs flawlessly.</p>
             </div>
+            
           </div>
 
           <div className="text-center">
             <p className="text-xl font-semibold text-primary">
-              Empowering homes with sustainable solar solutions.
+              Empowering homes and businesses with smart, sustainable solar energy.
             </p>
           </div>
         </div>

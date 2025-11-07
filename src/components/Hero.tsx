@@ -8,20 +8,21 @@ import heroImage3 from "@/assets/hero-solar-3.jpg";
 const slides = [
   {
     image: heroImage1,
-    title: "Lorem Ipsum Solar Energia",
-    subtitle: "Consectetur adipiscing elit sed do eiusmod tempor incididunt"
+    title: "Power Your Home with Sustainable Solar Energy",
+    subtitle: "Join the clean energy revolution with Orbit Enterprises. We provide reliable, efficient, and affordable solar installation solutions for homes and businesses."
   },
   {
     image: heroImage2,
-    title: "Dolor Sit Amet Consectetuer",
-    subtitle: "Ut labore et dolore magna aliqua enim ad minim veniam"
+    title: "Save More with Smart Solar Solutions",
+    subtitle: "Reduce your electricity bills and enjoy energy independence with our high-performance solar panels designed for long-term savings and sustainability."
   },
   {
     image: heroImage3,
-    title: "Quis Nostrud Exercitation",
-    subtitle: "Duis aute irure dolor in reprehenderit voluptate velit esse"
+    title: "Clean Energy for a Brighter Future",
+    subtitle: "Switch to renewable energy with Orbit Enterprises. Our expert team delivers end-to-end solar installation services you can trust for your home or business."
   }
 ];
+
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -68,10 +69,10 @@ const Hero = () => {
           <div className="absolute inset-0 z-20 flex items-center">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                <p className="text-xl md:text-xl text-muted-foreground mb-8">
                   {slide.subtitle}
                 </p>
                 <Button 
