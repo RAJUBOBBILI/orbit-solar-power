@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             <Sun className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">SolarMate</span>
+            <span className="text-xl font-bold text-foreground">Orbit Enterprises</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">

@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Sun className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold">SolarMate</span>
+              <span className="text-xl font-bold">Orbit Enterprises</span>
             </div>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.
@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@solarmate.com</span>
+                <span>info@Orbit Enterprises.com</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
-          <p>&copy; 2024 SolarMate. All rights reserved.</p>
+          <p>&copy; 2024 Orbit Enterprises. All rights reserved.</p>
         </div>
       </div>
     </footer>
