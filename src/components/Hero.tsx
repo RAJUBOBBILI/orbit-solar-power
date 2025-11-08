@@ -13,13 +13,13 @@ const slides = [
   },
   {
     image: heroImage2,
-    title: "Save More with Smart Solar Solutions",
-    subtitle: "Reduce your electricity bills and enjoy energy independence with our high-performance solar panels designed for long-term savings and sustainability."
+    title: "Get solar at Zero Investment with Orbit enterprises",
+    subtitle: "Government subsidy covers your down payment, and monthly solar savings cover your EMIs.With Orbit enterprises you get EMI options for  3,6,12 and 60 with 6% interest rate"
   },
   {
     image: heroImage3,
-    title: "Clean Energy for a Brighter Future",
-    subtitle: "Switch to renewable energy with Orbit Enterprises. Our expert team delivers end-to-end solar installation services you can trust for your home or business."
+    title: "100+ Successful Installations Across East Godavari",
+    subtitle: "With over 100 successful installations, we’ve built lasting trust across East Godavari district. Our expert team ensures every project is delivered with quality, efficiency, and complete customer satisfaction."
   }
 ];
 

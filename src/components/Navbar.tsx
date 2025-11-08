@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <img src={logo} alt="Orbit Enterprises Logo" className="h-32 w-32" />
+            <img src={logo} alt="Orbit Enterprises Logo" className="h-48 w-48" />
             {/* <span className="text-xl font-bold text-foreground">Orbit Enterprises</span> */}
           </div>
           

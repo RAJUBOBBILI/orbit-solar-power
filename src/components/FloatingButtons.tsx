@@ -10,7 +10,7 @@ const FloatingButtons: React.FC = () => {
       {/* Call Button */}
       <a
         href={`tel:${phoneNumber}`}
-        className="bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 flex items-center justify-center"
+        className="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 flex items-center justify-center"
         aria-label="Call Us"
       >
         <FaPhoneAlt size={22} />

@@ -24,7 +24,6 @@ const QuotationForm = () => {
     phone: "",
     address: "",
     propertyType: "",
-    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -46,7 +45,6 @@ const QuotationForm = () => {
           phone: "",
           address: "",
           propertyType: "",
-          message: "",
         });
       })
       .catch((error) => {
@@ -79,11 +77,11 @@ const QuotationForm = () => {
         {/* ✅ Two-column layout with equal height */}
         <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-12">
           {/* Image Section */}
-          <div className="w-full lg:w-1/2 h-auto lg:h-[600px] flex justify-center">
+          <div className="w-full lg:w-1/2 h-auto lg:h-[400px] flex justify-center">
             <img
               src={contact}
               alt="Solar Consultation"
-              className="rounded-2xl shadow-lg w-full h-full object-cover"
+              className="rounded-2xl shadow-lg w-full h-full "
             />
           </div>
 
@@ -143,17 +141,6 @@ const QuotationForm = () => {
                   required
                 />
               </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  className="min-h-32"
-                />
-              </div>
-
               <Button
                 type="submit"
                 className="mt-4 bg-primary hover:bg-primary/90 "
