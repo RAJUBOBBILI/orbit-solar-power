@@ -3,7 +3,6 @@ import emailjs from "emailjs-com";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -14,7 +13,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import contact from "@/assets/contactus.jpg";
 
-// ✅ Initialize EmailJS
+// Initialize EmailJS
 emailjs.init("jOzViPvuhJ53R7H-t");
 
 const QuotationForm = () => {
@@ -24,10 +23,20 @@ const QuotationForm = () => {
     phone: "",
     address: "",
     propertyType: "",
+    monthlyBill: "", // ✅ New field
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.monthlyBill) {
+      toast({
+        title: "Monthly Bill Required ❗",
+        description: "Please select your average monthly electricity bill.",
+        variant: "destructive",
+      });
+      return;
+    }
 
     const serviceId = "service_24mmin7";
     const templateId = "template_ft4qvlq";
@@ -45,6 +54,7 @@ const QuotationForm = () => {
           phone: "",
           address: "",
           propertyType: "",
+          monthlyBill: "",
         });
       })
       .catch((error) => {
@@ -74,14 +84,13 @@ const QuotationForm = () => {
           </p>
         </div>
 
-        {/* ✅ Two-column layout with equal height */}
         <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-12">
           {/* Image Section */}
-          <div className="w-full lg:w-1/2 h-auto lg:h-[400px] flex justify-center">
+          <div className="w-full lg:w-1/2 h-auto lg:h-[500px] flex justify-center">
             <img
               src={contact}
               alt="Solar Consultation"
-              className="rounded-2xl shadow-lg w-full h-full "
+              className="rounded-2xl shadow-lg w-full h-full"
             />
           </div>
 
@@ -93,7 +102,7 @@ const QuotationForm = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name">Full Name</Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -103,7 +112,7 @@ const QuotationForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">WhatsApp Number</Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -130,23 +139,54 @@ const QuotationForm = () => {
                     </SelectContent>
                   </Select>
                 </div>
+                <div className="space-y-2 ">
+                  <Label htmlFor="address">Pin Code</Label>
+                  <Input
+                    id="address"
+                    value={formData.address}
+                    onChange={(e) => handleChange("address", e.target.value)}
+                    required
+                  />
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="address">Address</Label>
-                <Input
-                  id="address"
-                  value={formData.address}
-                  onChange={(e) => handleChange("address", e.target.value)}
-                  required
-                />
+
+
+              {/* Monthly Bill Section */}
+              <div className="mt-6">
+                <Label className="block mb-2 font-medium">
+                  What is your average monthly bill? <span className="text-red-500">*</span>
+                </Label>
+
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  {[
+                    "Less than ₹1500",
+                    "₹1500 - ₹2500",
+                    "₹2500 - ₹4000",
+                    "₹4000 - ₹8000",
+                    "More than ₹8000",
+                  ].map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => handleChange("monthlyBill", option)}
+                      className={`px-4 py-2 rounded-md border transition ${formData.monthlyBill === option
+                          ? "bg-primary text-white border-primary"
+                          : "bg-background border-muted text-foreground hover:bg-accent"
+                        }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
               </div>
+
               <Button
                 type="submit"
-                className="mt-4 bg-primary hover:bg-primary/90 "
+                className="mt-6 bg-primary hover:bg-primary/90"
                 size="lg"
               >
-                Submit Quote Request
+                Submit Details
               </Button>
             </form>
           </div>

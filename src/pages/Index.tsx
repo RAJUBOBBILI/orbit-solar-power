@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import QuotationForm from "@/components/QuotationForm";
 import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
+import SolarCalculator from "@/components/SolarCalculator";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Hero />
       <Features />
       <QuotationForm />
+      <SolarCalculator />
       <AboutUs />
       <Footer />
     </div>
