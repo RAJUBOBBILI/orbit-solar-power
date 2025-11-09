@@ -10,7 +10,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import contact from "@/assets/contactus.jpg";
 
 const QuotationForm = () => {
   const { toast } = useToast();
@@ -35,7 +34,7 @@ const QuotationForm = () => {
     }
 
     const formDataToSend = new FormData();
-    formDataToSend.append("access_key", "f1c624e7-c6a3-438e-ae3d-4c00a8a89d37"); // ✅ Your Web3Forms Key
+    formDataToSend.append("access_key", "f1c624e7-c6a3-438e-ae3d-4c00a8a89d37");
     formDataToSend.append("Name", formData.name);
     formDataToSend.append("Phone", formData.phone);
     formDataToSend.append("Pin Code", formData.address);
@@ -55,8 +54,9 @@ const QuotationForm = () => {
         description: "Our team will contact you soon.",
       });
 
+      // ✅ Send to your Business WhatsApp
       window.open(
-        `https://wa.me/9179937 51365?text=${encodeURIComponent(
+        `https://wa.me/917993751365?text=${encodeURIComponent(
           `New Solar Quotation Request 🌞
 
 Customer Name: ${formData.name}
@@ -93,10 +93,10 @@ Please contact them soon ✅
 
   return (
     <section id="quotation" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-foreground mb-2">
             Request a Solar Installation Quote
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -104,82 +104,76 @@ Please contact them soon ✅
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-12">
-          <div className="w-full lg:w-1/2 h-auto lg:h-[500px] flex justify-center">
-            <img src={contact} alt="Solar Consultation" className="rounded-2xl shadow-lg w-full h-full" />
+        <form
+          onSubmit={handleSubmit}
+          className="w-full bg-card p-8 rounded-2xl border border-border shadow-sm space-y-6"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label>Full Name</Label>
+              <Input value={formData.name} onChange={(e) => handleChange("name", e.target.value)} required />
+            </div>
+
+            <div className="space-y-2">
+              <Label>WhatsApp Number</Label>
+              <Input type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} required />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Pin Code</Label>
+              <Input value={formData.address} onChange={(e) => handleChange("address", e.target.value)} required />
+            </div>
+
+          </div>
+          <div className="space-y-2">
+            <Label>Type of Property</Label>
+            <Select value={formData.propertyType} onValueChange={(value) => handleChange("propertyType", value)}>
+              <SelectTrigger><SelectValue placeholder="Select property type" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="residential">Residential</SelectItem>
+                <SelectItem value="commercial">Commercial</SelectItem>
+                <SelectItem value="industrial">Industrial</SelectItem>
+                <SelectItem value="agricultural">Agricultural</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          <div className="w-full lg:w-1/2 flex items-stretch">
-            <form onSubmit={handleSubmit} className="flex flex-col justify-between w-full bg-card p-8 rounded-2xl border border-border shadow-sm">
+          <div>
+            <Label className="block mb-2 font-medium">
+              What is your average monthly bill? <span className="text-red-500">*</span>
+            </Label>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label>Full Name</Label>
-                  <Input value={formData.name} onChange={(e) => handleChange("name", e.target.value)} required />
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {[
+                "Less than ₹1500",
+                "₹1500 - ₹2500",
+                "₹2500 - ₹4000",
+                "₹4000 - ₹8000",
+                "More than ₹8000",
+              ].map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => handleChange("monthlyBill", option)}
+                  className={`px-4 py-2 rounded-md border text-sm sm:text-base transition ${formData.monthlyBill === option
+                    ? "bg-primary text-white border-primary"
+                    : "bg-background border-border text-foreground hover:bg-accent hover:border-primary"
+                    }`}
+                >
+                  {option}
+                </button>
 
-                <div className="space-y-2">
-                  <Label>WhatsApp Number</Label>
-                  <Input type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} required />
-                </div>
-
-                <div className="space-y-2">
-                  <Label>Type of Property</Label>
-                  <Select value={formData.propertyType} onValueChange={(value) => handleChange("propertyType", value)}>
-                    <SelectTrigger><SelectValue placeholder="Select property type" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="residential">Residential</SelectItem>
-                      <SelectItem value="commercial">Commercial</SelectItem>
-                      <SelectItem value="industrial">Industrial</SelectItem>
-                      <SelectItem value="agricultural">Agricultural</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label>Pin Code</Label>
-                  <Input value={formData.address} onChange={(e) => handleChange("address", e.target.value)} required />
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <Label className="block mb-2 font-medium">
-                  What is your average monthly bill? <span className="text-red-500">*</span>
-                </Label>
-
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {[
-                    "Less than ₹1500",
-                    "₹1500 - ₹2500",
-                    "₹2500 - ₹4000",
-                    "₹4000 - ₹8000",
-                    "More than ₹8000",
-                  ].map((option) => (
-                    <button
-                      key={option}
-                      type="button"
-                      onClick={() => handleChange("monthlyBill", option)}
-                      className={`px-4 py-2 rounded-md border transition ${
-                        formData.monthlyBill === option
-                          ? "bg-primary text-white border-primary"
-                          : "bg-background border-muted text-foreground hover:bg-accent"
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <Button type="submit" className="mt-6 bg-primary hover:bg-primary/90" size="lg">
-                Submit Details
-              </Button>
-
-            </form>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+
+          <Button type="submit" className=" bg-primary hover:bg-primary/90" size="lg">
+            Submit Details
+          </Button>
+        </form>
+
+      </div >
+    </section >
   );
 };
 

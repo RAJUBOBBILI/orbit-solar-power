@@ -24,7 +24,7 @@ const Footer = () => {
             <ul className="space-y-3 text-muted-foreground">
               <li>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/orbit_solar_systems"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-primary transition-colors"
