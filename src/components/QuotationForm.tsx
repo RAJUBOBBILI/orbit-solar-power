@@ -54,8 +54,9 @@ const QuotationForm = () => {
         title: "Quotation Sent ✅",
         description: "Our team will contact you soon.",
       });
+
       window.open(
-        `https://wa.me/9179937 51365?text=Thank%20you%20for%20choosing%20Orbit%20Enterprises!%20We%20received%20your%20quotation%20request%20and%20our%20team%20will%20contact%20you%20shortly.`,
+        `https://wa.me/91XXXXXXXXXX?text=Thank%20you%20for%20choosing%20Orbit%20Enterprises!%20We%20received%20your%20quotation%20request%20and%20our%20team%20will%20contact%20you%20shortly.`,
         "_blank"
       );
 
