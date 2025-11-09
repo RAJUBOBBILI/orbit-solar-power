@@ -35,7 +35,7 @@ const QuotationForm = () => {
     }
 
     const formDataToSend = new FormData();
-    formDataToSend.append("access_key", "f1c624e7-c6a3-438e-ae3d-4c00a8a89d37"); 
+    formDataToSend.append("access_key", "f1c624e7-c6a3-438e-ae3d-4c00a8a89d37"); // ✅ Your Web3Forms Key
     formDataToSend.append("Name", formData.name);
     formDataToSend.append("Phone", formData.phone);
     formDataToSend.append("Pin Code", formData.address);
@@ -56,7 +56,18 @@ const QuotationForm = () => {
       });
 
       window.open(
-        `https://wa.me/91XXXXXXXXXX?text=Thank%20you%20for%20choosing%20Orbit%20Enterprises!%20We%20received%20your%20quotation%20request%20and%20our%20team%20will%20contact%20you%20shortly.`,
+        `https://wa.me/9179937 51365?text=${encodeURIComponent(
+          `New Solar Quotation Request 🌞
+
+Customer Name: ${formData.name}
+WhatsApp Number: ${formData.phone}
+Pin Code: ${formData.address}
+Property Type: ${formData.propertyType}
+Monthly Bill Range: ${formData.monthlyBill}
+
+Please contact them soon ✅
+- Orbit Enterprises`
+        )}`,
         "_blank"
       );
 
