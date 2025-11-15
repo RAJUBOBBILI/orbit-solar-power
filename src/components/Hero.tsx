@@ -30,7 +30,7 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -72,7 +72,7 @@ const Hero = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-xl text-muted-foreground mb-8">
+                <p className="text-xl md:text-xl text-gray-700 mb-8">
                   {slide.subtitle}
                 </p>
                 <Button 
@@ -90,13 +90,13 @@ const Hero = () => {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/20 hover:bg-background p-2 rounded-full transition-colors"
       >
         <ChevronLeft className="h-6 w-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/80 hover:bg-background p-2 rounded-full transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/20 hover:bg-background p-2 rounded-full transition-colors"
       >
         <ChevronRight className="h-6 w-6" />
       </button>

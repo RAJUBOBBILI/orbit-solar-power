@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logo} alt="Orbit Enterprises Logo" className="h-32 w-auto" />
+            <img src={logo} alt="Orbit Enterprises Logo" className="h-32 w-auto absolute left-0" />
           </div>
 
           {/* Desktop Menu */}
