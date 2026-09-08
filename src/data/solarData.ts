@@ -285,7 +285,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     id: 'proj-5',
     title: '6 kW Hybrid Solar Backup System',
     type: 'Residential',
-    capacity: '6 kW + Lithium Storage',
+    capacity: '6 kW + Lithium Storage.',
     location: 'Mandapeta, East Godavari',
     description: 'Hybrid inverter paired with a 10 kWh lithium battery bank. Delivers net metering bill reductions plus instant blackout backup for ACs and home appliances.',
     image: kw6,
