@@ -1,4 +1,10 @@
 import { ServiceItem, ProjectItem, FAQItem, TestimonialItem, SolarGuideItem } from '../types';
+import headerImage from '../assets/header_image.png';
+import commercialNeeds from '../assets/Commercial-Needs.jpg';
+import offGridNeeds from '../assets/off-grid-solar-energy-system.png';
+import kw from '../assets/5kw.jpg';
+import kW15 from '../assets/15kw.jpg';
+import kw6 from '../assets/6-kw.jpeg';
 
 export const BUSINESS_INFO = {
   name: 'Orbit Power Solutions',
@@ -81,7 +87,7 @@ export const SOLAR_SERVICES: ServiceItem[] = [
     capacityRange: '2 kW to 15 kW',
     warranty: '25-Year Panel Performance | 5-Year Inverter Warranty',
     icon: 'Home',
-    image: 'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80'
+    image: headerImage
   },
   {
     id: 'commercial-industrial',
@@ -98,7 +104,7 @@ export const SOLAR_SERVICES: ServiceItem[] = [
     capacityRange: '10 kW to 250+ kW',
     warranty: '25-Year Panel Performance | 5-Year Comprehensive Service Support',
     icon: 'Building2',
-    image: 'https://images.unsplash.com/photo-1548611716-ad7825707aab?auto=format&fit=crop&w=800&q=80'
+    image: commercialNeeds
   },
   {
     id: 'off-grid-solar',
@@ -115,7 +121,7 @@ export const SOLAR_SERVICES: ServiceItem[] = [
     capacityRange: '1 kW to 10 kW',
     warranty: '25-Year Panel Performance | 3 to 5-Year Battery Warranty',
     icon: 'BatteryCharging',
-    image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80'
+    image: offGridNeeds
   },
   {
     id: 'hybrid-solar',
@@ -238,7 +244,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     capacity: '5 kW',
     location: 'Ravulapalem, East Godavari',
     description: 'Rooftop installation on a two-storey independent residential home. Integrated with APEPDCL net metering, reducing monthly power bills from ₹6,200 to under ₹700.',
-    image: 'https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80',
+    image: kw,
     savingsHighlights: 'Generates ~650 units/month, saving over ₹65,000 annually.',
     completionYear: '2024'
   },
@@ -249,7 +255,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     capacity: '15 kW',
     location: 'Rajahmundry, Andhra Pradesh',
     description: 'Custom elevated galvanized steel framework installed over a commercial complex. Provides clean daytime solar generation while preserving rooftop recreational access.',
-    image: 'https://images.unsplash.com/photo-1548611716-ad7825707aab?auto=format&fit=crop&w=800&q=80',
+    image: kW15,
     savingsHighlights: 'Cuts commercial daytime peak tariff loads by ~75%.',
     completionYear: '2024'
   },
@@ -282,7 +288,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     capacity: '6 kW + Lithium Storage',
     location: 'Mandapeta, East Godavari',
     description: 'Hybrid inverter paired with a 10 kWh lithium battery bank. Delivers net metering bill reductions plus instant blackout backup for ACs and home appliances.',
-    image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80',
+    image: kw6,
     savingsHighlights: 'Uninterrupted power during coastal summer storm blackouts.',
     completionYear: '2024'
   },

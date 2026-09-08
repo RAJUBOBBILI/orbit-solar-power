@@ -1,6 +1,8 @@
 import React from 'react';
 import { Phone, MessageCircle, ArrowRight, ShieldCheck, Zap, Award, CheckCircle } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/solarData';
+import headerImage from '../assets/header_image.png';
+
 
 interface HeroProps {
   onOpenQuoteModal: () => void;
@@ -91,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
             <div className="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
               {/* High-quality solar panel installation image */}
               <img
-                src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80"
+                src={headerImage}
                 alt="Orbit Power Solutions rooftop solar panel installation in Andhra Pradesh"
                 className="w-full h-80 sm:h-96 object-cover"
                 loading="eager"
