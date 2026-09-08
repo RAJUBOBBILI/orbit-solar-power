@@ -272,7 +272,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   },
   {
     id: 'proj-4',
-    title: '7 HP Agricultural Solar Pumping System',
+    title: '7.5 HP Agricultural Solar Pumping System',
     type: 'Agricultural',
     capacity: '7.5 HP / 6.5 kWp',
     location: 'Amalapuram, Konaseema',
