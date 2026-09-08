@@ -1,119 +1,131 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import heroImage1 from "@/assets/hero-solar-1.jpg";
-import heroImage2 from "@/assets/hero-solar-2.jpg";
-import heroImage3 from "@/assets/hero-solar-3.jpg";
+import React from 'react';
+import { Phone, MessageCircle, ArrowRight, ShieldCheck, Zap, Award, CheckCircle } from 'lucide-react';
+import { BUSINESS_INFO } from '../data/solarData';
 
-const slides = [
-  {
-    image: heroImage1,
-    title: "Power Your Home with Sustainable Solar Energy",
-    subtitle: "Join the clean energy revolution with Orbit Enterprises. We provide reliable, efficient, and affordable solar installation solutions for homes and businesses."
-  },
-  {
-    image: heroImage2,
-    title: "Get solar at Zero Investment with Orbit enterprises",
-    subtitle: "Government subsidy covers your down payment, and monthly solar savings cover your EMIs.With Orbit enterprises you get EMI options for  3,6,12 and 60 with 6% interest rate"
-  },
-  {
-    image: heroImage3,
-    title: "100+ Successful Installations Across East Godavari",
-    subtitle: "With over 100 successful installations, we’ve built lasting trust across East Godavari district. Our expert team ensures every project is delivered with quality, efficiency, and complete customer satisfaction."
-  }
-];
+interface HeroProps {
+  onOpenQuoteModal: () => void;
+}
 
-
-const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 10000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const scrollToQuotation = () => {
-    const element = document.getElementById("quotation");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
+export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40 z-10" />
-          <img
-            src={slide.image}
-            alt={`Solar installation ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 z-20 flex items-center">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-                  {slide.title}
-                </h1>
-                <p className="text-xl md:text-xl text-gray-700 mb-8">
-                  {slide.subtitle}
-                </p>
-                <Button 
-                  onClick={scrollToQuotation}
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6"
-                >
-                  Get a Free Quote
-                </Button>
+    <section id="home" className="relative bg-gradient-to-b from-slate-900 via-[#0a2540] to-slate-900 text-white pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+      {/* Background Subtle Solar Pattern */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          {/* Left Text Column */}
+          <div className="lg:col-span-7 flex flex-col space-y-6">
+            
+            {/* Trust badge */}
+            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-amber-400 text-xs sm:text-sm font-medium">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span>Solar Installation in East Godavari & Konaseema, AP</span>
+            </div>
+
+            {/* Clear Primary H1 */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              Professional Rooftop Solar Solutions for Homes & Businesses in Andhra Pradesh
+            </h1>
+
+            {/* Descriptive, non-vague supporting paragraph */}
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              Orbit Power Solutions designs and installs high-efficiency On-Grid, Off-Grid, and Hybrid solar energy systems. 
+              Reduce monthly electricity bills by up to 90%, secure Central Government subsidies under PM Surya Ghar Muft Bijli Yojana, and obtain end-to-end APEPDCL net-metering approvals.
+            </p>
+
+            {/* Core Direct CTAs */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <button
+                type="button"
+                id="hero-free-quote-cta"
+                onClick={onOpenQuoteModal}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/20 transition-all transform active:scale-95"
+              >
+                <span>Get a Free Solar Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href={`https://wa.me/${BUSINESS_INFO.whatsappRaw}?text=${encodeURIComponent(BUSINESS_INFO.whatsappPrefill)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="hero-whatsapp-cta"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm sm:text-base shadow-sm transition-all"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>WhatsApp Us</span>
+              </a>
+
+              <a
+                href={`tel:${BUSINESS_INFO.phone1Raw}`}
+                id="hero-call-cta"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-slate-600 hover:border-slate-400 bg-slate-800/60 text-slate-200 hover:text-white font-semibold text-sm sm:text-base transition-all"
+              >
+                <Phone className="w-4 h-4 text-amber-400" />
+                <span>Call: {BUSINESS_INFO.phone1}</span>
+              </a>
+            </div>
+
+            {/* Trust bullet checkpoints */}
+            <div className="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>PM Surya Ghar Subsidy Assistance</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Discom Net-Metering Liaison</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                <span>Tier-1 Panels with 25-Yr Warranty</span>
               </div>
             </div>
+
           </div>
+
+          {/* Right Image / Trust Card Column */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
+              {/* High-quality solar panel installation image */}
+              <img
+                src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80"
+                alt="Orbit Power Solutions rooftop solar panel installation in Andhra Pradesh"
+                className="w-full h-80 sm:h-96 object-cover"
+                loading="eager"
+                width={1000}
+                height={750}
+              />
+
+              {/* Floating verified badge */}
+              <div className="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-slate-700 flex items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-1.5 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span>Local Engineering & Support</span>
+                  </div>
+                  <p className="text-xs text-slate-300 mt-0.5">
+                    Based in Ravulapalem, serving East Godavari & Konaseema
+                  </p>
+                </div>
+                <div className="text-right shrink-0">
+                  <span className="text-xs text-slate-400 block">Subsidy up to</span>
+                  <span className="text-base font-bold text-emerald-400">₹78,000*</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Small floating stat pill */}
+            <div className="hidden sm:flex absolute -top-4 -right-4 bg-amber-500 text-slate-950 px-4 py-2 rounded-xl shadow-lg font-bold text-xs items-center gap-2 border border-amber-400">
+              <Zap className="w-4 h-4 text-slate-950 fill-current" />
+              <span>Up to 90% Bill Reduction</span>
+            </div>
+          </div>
+
         </div>
-      ))}
-
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-background/20 hover:bg-background p-2 rounded-full transition-colors"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-background/20 hover:bg-background p-2 rounded-full transition-colors"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all ${
-              index === currentSlide ? "w-8 bg-primary" : "w-2 bg-background/60"
-            }`}
-          />
-        ))}
       </div>
-    </div>
+    </section>
   );
 };
-
-export default Hero;

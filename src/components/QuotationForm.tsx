@@ -16,7 +16,6 @@ const QuotationForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    address: "",
     propertyType: "",
     monthlyBill: "",
   });
@@ -37,7 +36,6 @@ const QuotationForm = () => {
     formDataToSend.append("access_key", "f1c624e7-c6a3-438e-ae3d-4c00a8a89d37");
     formDataToSend.append("Name", formData.name);
     formDataToSend.append("Phone", formData.phone);
-    formDataToSend.append("Pin Code", formData.address);
     formDataToSend.append("Property Type", formData.propertyType);
     formDataToSend.append("Monthly Bill", formData.monthlyBill);
 
@@ -61,7 +59,6 @@ const QuotationForm = () => {
 
 Customer Name: ${formData.name}
 WhatsApp Number: ${formData.phone}
-Pin Code: ${formData.address}
 Property Type: ${formData.propertyType}
 Monthly Bill Range: ${formData.monthlyBill}
 
@@ -74,7 +71,6 @@ Please contact them soon ✅
       setFormData({
         name: "",
         phone: "",
-        address: "",
         propertyType: "",
         monthlyBill: "",
       });
@@ -118,12 +114,6 @@ Please contact them soon ✅
               <Label>WhatsApp Number</Label>
               <Input type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} required />
             </div>
-
-            <div className="space-y-2">
-              <Label>Pin Code</Label>
-              <Input value={formData.address} onChange={(e) => handleChange("address", e.target.value)} required />
-            </div>
-
           </div>
           <div className="space-y-2">
             <Label>Type of Property</Label>

@@ -1,0 +1,6 @@
+{
+  "name": "Orbit Power Solutions",
+  "description": "Professional solar panel installation and renewable energy solutions for residential, commercial, and agricultural properties across East Godavari, Kakinada, and Andhra Pradesh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
